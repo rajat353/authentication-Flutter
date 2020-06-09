@@ -15,6 +15,7 @@ void main() {
 class Welcome extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
+    //To disable the status panel
     SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.bottom]);
     return WelcomeState();
   }

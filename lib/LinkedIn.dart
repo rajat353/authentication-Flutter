@@ -1,12 +1,14 @@
 import 'dart:io';
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:linkedin_login/linkedin_login.dart';
 import 'package:authentication_flutter/LoginPage.dart';
 
-final String redirectUrl = 'https://app.test.in';
-final String clientId = '86h64b34u8ki5a';
-final String clientSecret = 'ttSHAwridQ7TShbA';
+//Enter Your Own Details Here
+//For Information Visit: https://docs.microsoft.com/en-in/linkedin/shared/authentication/permissions?context=linkedin/context
+
+final String redirectUrl = '';
+final String clientId = '';
+final String clientSecret = '';
 
 bool logoutUser = false;
 
@@ -32,19 +34,27 @@ class LinkedInState extends State<LinkedIn> {
       return showDialog(
             context: context,
             builder: (context) => new AlertDialog(
-              backgroundColor: Colors.black,
+              backgroundColor: Colors.black54,
+              shape: Border.all(color: Colors.white),
               title: new Text('Are you sure?',
                   style: TextStyle(color: Colors.white)),
               content: new Text('Do you want to exit?',
                   style: TextStyle(color: Colors.white)),
               actions: <Widget>[
-                new GestureDetector(
-                  onTap: () => Navigator.of(context).pop(false),
-                  child: Text("NO", style: TextStyle(color: Colors.white)),
+                new FlatButton(
+                  splashColor: Colors.white,
+                  shape: Border.all(color: Colors.white),
+                  onPressed: () => Navigator.of(context).pop(false),
+                  child: Text(
+                    "NO",
+                    style: TextStyle(color: Colors.white),
+                  ),
                 ),
-                SizedBox(height: 16),
-                new GestureDetector(
-                  onTap: () => exit(0),
+                SizedBox(height: 30),
+                new FlatButton(
+                  splashColor: Colors.white,
+                  shape: Border.all(color: Colors.white),
+                  onPressed: () => exit(0),
                   child: Text(
                     "YES",
                     style: TextStyle(color: Colors.white),

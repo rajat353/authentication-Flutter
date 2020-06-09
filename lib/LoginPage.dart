@@ -8,6 +8,7 @@ import 'package:authentication_flutter/LinkedIn.dart';
 class LoginPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
+    //To enable the status panel
     SystemChrome.setEnabledSystemUIOverlays(SystemUiOverlay.values);
 
     return LoginPageState();
@@ -39,19 +40,27 @@ class LoginPageState extends State<LoginPage>
     return showDialog(
           context: context,
           builder: (context) => new AlertDialog(
-            backgroundColor: Colors.black,
+            backgroundColor: Colors.black54,
+            shape: Border.all(color: Colors.white),
             title: new Text('Are you sure?',
                 style: TextStyle(color: Colors.white)),
             content: new Text('Do you want to exit?',
                 style: TextStyle(color: Colors.white)),
             actions: <Widget>[
-              new GestureDetector(
-                onTap: () => Navigator.of(context).pop(false),
-                child: Text("NO", style: TextStyle(color: Colors.white)),
+              new FlatButton(
+                splashColor: Colors.white,
+                shape: Border.all(color: Colors.white),
+                onPressed: () => Navigator.of(context).pop(false),
+                child: Text(
+                  "NO",
+                  style: TextStyle(color: Colors.white),
+                ),
               ),
-              SizedBox(height: 16),
-              new GestureDetector(
-                onTap: () => exit(0),
+              SizedBox(height: 30),
+              new FlatButton(
+                splashColor: Colors.white,
+                shape: Border.all(color: Colors.white),
+                onPressed: () => exit(0),
                 child: Text(
                   "YES",
                   style: TextStyle(color: Colors.white),
@@ -77,7 +86,7 @@ class LoginPageState extends State<LoginPage>
                 body: Container(
                   height: height,
                   width: width,
-                  padding: EdgeInsets.all(10),
+                  padding: EdgeInsets.all(20),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
@@ -125,32 +134,33 @@ class LoginPageState extends State<LoginPage>
                         transform: Matrix4.translationValues(
                             animationLeft.value * width, 0.0, 0.0),
                         child: InkWell(
-                          child: Container(
-                            margin: EdgeInsets.all(10.0),
-                            height: 60,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              mainAxisSize: MainAxisSize.max,
-                              children: <Widget>[
-                                Image.asset(
-                                  'images/instagram.png',
-                                  height: 45.0,
-                                  fit: BoxFit.cover,
-                                ),
-                                Text(
-                                  'Countinue with Instagram',
-                                  style: TextStyle(
-                                    fontSize: 17.0,
-                                    fontFamily: "RoundedElegance",
-                                    color: Colors.white,
+                            child: Container(
+                              padding: EdgeInsets.all(10.0),
+                              height: 60,
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                mainAxisSize: MainAxisSize.max,
+                                children: <Widget>[
+                                  Image.asset(
+                                    'images/instagram.png',
+                                    height: 45.0,
+                                    fit: BoxFit.cover,
                                   ),
-                                )
-                              ],
+                                  Text(
+                                    'Countinue with Instagram',
+                                    style: TextStyle(
+                                      fontSize: 17.0,
+                                      fontFamily: "RoundedElegance",
+                                      color: Colors.white,
+                                    ),
+                                  )
+                                ],
+                              ),
+                              decoration: BoxDecoration(
+                                  border: Border.all(color: Colors.white)),
                             ),
-                            decoration: BoxDecoration(
-                                border: Border.all(color: Colors.white)),
-                          ),
-                        ),
+                            onTap: () {}),
                       ),
                       SizedBox(
                         height: 10,
@@ -175,7 +185,7 @@ class LoginPageState extends State<LoginPage>
                             animationLeft.value * width, 0.0, 0.0),
                         child: InkWell(
                             child: Container(
-                              margin: EdgeInsets.all(10.0),
+                              padding: EdgeInsets.all(10.0),
                               height: 60,
                               child: Row(
                                 mainAxisAlignment:
@@ -200,7 +210,6 @@ class LoginPageState extends State<LoginPage>
                               decoration: BoxDecoration(
                                   border: Border.all(color: Colors.white)),
                             ),
-                            splashColor: Colors.red[100],
                             onTap: () {
                               Navigator.push(
                                   context,
