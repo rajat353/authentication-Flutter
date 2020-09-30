@@ -1,6 +1,6 @@
 # authentication_flutter
-
-A new Flutter project.
+ 
+ This is an Authentication screen which allowes you to login via linkedin, google and as well as as email password also.
 
 ## Getting Started
 
